@@ -119,7 +119,20 @@ class ViewController : UIViewController, UITableViewDelegate, UITableViewDataSou
         return cell!
         
     }
-    
+    //Delete
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
+        if (editingStyle == UITableViewCellEditingStyle.delete){
+            
+            if tableView == self.proTable {
+                pMgr.pros.remove(at: indexPath.row)
+                proTable.reloadData()
+            }
+            if tableView == self.conTable {
+                cMgr.cons.remove(at: indexPath.row)
+                conTable.reloadData()
+            }
+        }
+    }
     
     //Swiping
     func swipeForPro(swipe:UISwipeGestureRecognizer)
@@ -146,44 +159,44 @@ class ViewController : UIViewController, UITableViewDelegate, UITableViewDataSou
     func cellBkgdColorPickerPro(weight:Float) -> UIColor
     {
         if round(weight) == 0 {
-            return UIColor(red: 67/255, green: 242/255, blue: 169/255, alpha: 1.0)
+            return UIColor(red:0.70, green:0.95, blue:0.89, alpha:1.0)
         }
         if round(weight) == 1 {
-            return UIColor(red: 67/255, green: 242/255, blue: 169/255, alpha: 1.0)
+            return UIColor(red:0.70, green:0.95, blue:0.89, alpha:1.0)
         }
         if round(weight) == 2 {
-            return UIColor(red: 62/255, green: 224/255, blue: 157/255, alpha: 1.0)
+            return UIColor(red:0.49, green:0.88, blue:0.78, alpha:1.0)
         }
         if round(weight) == 3 {
-            return UIColor(red: 48/255, green: 176/255, blue: 124/255, alpha: 1.0)
+            return UIColor(red:0.33, green:0.80, blue:0.68, alpha:1.0)
         }
         if round(weight) == 4 {
-            return UIColor(red: 42/255, green: 153/255, blue: 107/255, alpha: 1.0)
+            return UIColor(red:0.21, green:0.70, blue:0.58, alpha:1.0)
         }
         else {
-            return UIColor(red: 34/255, green: 124/255, blue: 87/255, alpha: 1.0)
+            return UIColor(red:0.10, green:0.62, blue:0.49, alpha:1.0)
         }
     }
     
     func cellBkgdColorPickerCon(weight:Float) -> UIColor
     {
         if round(weight) == 0 {
-            return UIColor(red: 255/255, green: 99/255, blue: 79/255, alpha: 1.0)
+            return UIColor(red:1.00, green:0.59, blue:0.56, alpha:1.0)
         }
         if round(weight) == 1 {
-            return UIColor(red: 255/255, green: 99/255, blue: 79/255, alpha: 1.0)
+            return UIColor(red:1.00, green:0.59, blue:0.56, alpha:1.0)
         }
         if round(weight) == 2 {
-            return UIColor(red: 239/255, green: 93/255, blue: 74/255, alpha: 1.0)
+            return UIColor(red:0.96, green:0.42, blue:0.38, alpha:1.0)
         }
         if round(weight) == 3 {
-            return UIColor(red: 229/255, green: 90/255, blue: 70/255, alpha: 1.0)
+            return UIColor(red:0.85, green:0.27, blue:0.23, alpha:1.0)
         }
         if round(weight) == 4 {
-            return UIColor(red: 191/255, green: 74/255, blue: 59/255, alpha: 1.0)
+            return UIColor(red:0.73, green:0.15, blue:0.11, alpha:1.0)
         }
         else {
-            return UIColor(red: 160/255, green: 62/255, blue: 49/255, alpha: 1.0)
+            return UIColor(red:0.58, green:0.06, blue:0.02, alpha:1.0)
         }
     }
     
