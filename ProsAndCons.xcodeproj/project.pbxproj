@@ -7,18 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		884108E21F24043600257A0A /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884108E11F24043600257A0A /* SegueFromLeft.swift */; };
 		887BA9161F23137E006DE970 /* ProOrCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887BA9151F23137E006DE970 /* ProOrCon.swift */; };
+		887BA9181F23155B006DE970 /* ProConManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887BA9171F23155B006DE970 /* ProConManager.swift */; };
 		88C3A8FD1F22DAF300B193F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C3A8FC1F22DAF300B193F2 /* AppDelegate.swift */; };
 		88C3A8FF1F22DAF300B193F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C3A8FE1F22DAF300B193F2 /* ViewController.swift */; };
 		88C3A9021F22DAF300B193F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88C3A9001F22DAF300B193F2 /* Main.storyboard */; };
 		88C3A9041F22DAF300B193F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88C3A9031F22DAF300B193F2 /* Assets.xcassets */; };
 		88C3A9071F22DAF300B193F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88C3A9051F22DAF300B193F2 /* LaunchScreen.storyboard */; };
-		88C3A90F1F22DEA500B193F2 /* Declarations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C3A90E1F22DEA500B193F2 /* Declarations.swift */; };
 		88C3A9151F22EAED00B193F2 /* AddProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C3A9141F22EAED00B193F2 /* AddProViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		884108E11F24043600257A0A /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		887BA9151F23137E006DE970 /* ProOrCon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProOrCon.swift; path = ../ProOrCon.swift; sourceTree = "<group>"; };
+		887BA9171F23155B006DE970 /* ProConManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProConManager.swift; sourceTree = "<group>"; };
 		88C3A8F91F22DAF300B193F2 /* ProsAndCons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProsAndCons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C3A8FC1F22DAF300B193F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88C3A8FE1F22DAF300B193F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,7 +29,6 @@
 		88C3A9031F22DAF300B193F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88C3A9061F22DAF300B193F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88C3A9081F22DAF300B193F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		88C3A90E1F22DEA500B193F2 /* Declarations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Declarations.swift; sourceTree = "<group>"; };
 		88C3A9141F22EAED00B193F2 /* AddProViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,11 +63,12 @@
 			isa = PBXGroup;
 			children = (
 				887BA9151F23137E006DE970 /* ProOrCon.swift */,
+				887BA9171F23155B006DE970 /* ProConManager.swift */,
 				88C3A8FC1F22DAF300B193F2 /* AppDelegate.swift */,
 				88C3A8FE1F22DAF300B193F2 /* ViewController.swift */,
+				884108E11F24043600257A0A /* SegueFromLeft.swift */,
 				88C3A9001F22DAF300B193F2 /* Main.storyboard */,
 				88C3A9141F22EAED00B193F2 /* AddProViewController.swift */,
-				88C3A90E1F22DEA500B193F2 /* Declarations.swift */,
 				88C3A9031F22DAF300B193F2 /* Assets.xcassets */,
 				88C3A9051F22DAF300B193F2 /* LaunchScreen.storyboard */,
 				88C3A9081F22DAF300B193F2 /* Info.plist */,
@@ -145,8 +148,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88C3A90F1F22DEA500B193F2 /* Declarations.swift in Sources */,
+				884108E21F24043600257A0A /* SegueFromLeft.swift in Sources */,
 				88C3A8FF1F22DAF300B193F2 /* ViewController.swift in Sources */,
+				887BA9181F23155B006DE970 /* ProConManager.swift in Sources */,
 				887BA9161F23137E006DE970 /* ProOrCon.swift in Sources */,
 				88C3A9151F22EAED00B193F2 /* AddProViewController.swift in Sources */,
 				88C3A8FD1F22DAF300B193F2 /* AppDelegate.swift in Sources */,

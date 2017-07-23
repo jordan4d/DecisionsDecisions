@@ -8,10 +8,39 @@
 
 import UIKit
 
-class AddProViewController: UIViewController {
+class AddProViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var proTitle: UITextField!
+    @IBOutlet weak var proWeight: UISlider!
+    @IBAction func btnAddPro(sender : UIButton){
+        if (proTitle.text == ""){
+            //Pro Title is blank, do not add a record
+        } else {
+            //add record
+            pcMgr.addPro(name: proTitle.text!, weight: proWeight.value)
+            
+            //dismiss keyboard and reset fields
+            
+            self.view.endEditing(true)
+            proTitle.text = nil
+        }
+    }
+    
+    func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        textField.resignFirstResponder()
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(swipe:)))
+        rightSwipe.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(rightSwipe)
 
         // Do any additional setup after loading the view.
     }
@@ -21,19 +50,11 @@ class AddProViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func swipeAction(swipe:UISwipeGestureRecognizer)
+    {
+        performSegue(withIdentifier: "swipeRightBack", sender: self)
     }
-    */
 
-    @IBOutlet weak var proTitle: UITextField!
-    @IBOutlet weak var proWeight: UISlider!
     
     
 }
