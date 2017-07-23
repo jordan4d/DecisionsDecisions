@@ -41,3 +41,8 @@ class ConManager: NSObject {
         cons.append(con(name: name, weight: weight))
     }
 }
+
+
+
+
+		

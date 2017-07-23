@@ -29,6 +29,8 @@ class ViewController : UIViewController, UITableViewDelegate, UITableViewDataSou
         let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeForCon(swipe:)))
         upSwipe.direction = UISwipeGestureRecognizerDirection.up
         self.view.addGestureRecognizer(upSwipe)
+        
+
 
         //Tables
         
@@ -39,10 +41,34 @@ class ViewController : UIViewController, UITableViewDelegate, UITableViewDataSou
         conTable.dataSource = self
         conTable.delegate = self
         conTable.register(UITableViewCell.self, forCellReuseIdentifier: "conCell")
-        //Flips table
-        self.conTable.transform = CGAffineTransform(scaleX: 1, y: -1)
+        self.conTable.transform = CGAffineTransform(scaleX: 1, y: -1)         //Flips table
+        
     }
-
+    
+    //Results
+    func getResults() -> Bool {
+        var supremeTotal: Float = 0
+        for con in cMgr.cons {
+            supremeTotal -= con.weight
+        }
+        for pro in pMgr.pros {
+            supremeTotal += pro.weight
+        }
+        if supremeTotal >= 0 {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    //Shaking
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        print("Device was shaken!")
+        shakeForResults(proOrCon: getResults())
+    }
+    
+    //Tables
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         var count:Int?
@@ -72,7 +98,7 @@ class ViewController : UIViewController, UITableViewDelegate, UITableViewDataSou
             cell?.textLabel?.text = pMgr.pros[indexPath.row].name
             cell?.textLabel?.textColor = UIColor.white
             cell?.backgroundColor = cellBkgdColorPickerPro(weight: pMgr.pros[indexPath.row].weight)
-            
+            print(pMgr.pros[indexPath.row].weight)
         }
         
         if tableView == self.conTable {
@@ -81,8 +107,7 @@ class ViewController : UIViewController, UITableViewDelegate, UITableViewDataSou
             cell?.textLabel?.text = cMgr.cons[indexPath.row].name
             cell?.textLabel?.textColor = UIColor.white
             cell?.backgroundColor = cellBkgdColorPickerCon(weight: cMgr.cons[indexPath.row].weight)
-            //Flips Cell
-            cell?.transform = CGAffineTransform(scaleX: 1, y: -1)
+            cell?.transform = CGAffineTransform(scaleX: 1, y: -1)            //Flips Cell
             
         }
         
@@ -90,44 +115,6 @@ class ViewController : UIViewController, UITableViewDelegate, UITableViewDataSou
         
     }
     
-    
-        
-
-    
-    
-//
-//    
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
-//        if (editingStyle == UITableViewCellEditingStyle.delete){
-//            pMgr.pros.remove(at: indexPath.row)
-//            proTable.reloadData()
-//        }
-//    }
-//
-//    //Con Table
-//
-//    func tableView(_ tableView: conTable, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Default Cons")
-//        
-//        cell.textLabel?.text = cMgr.cons[indexPath.row].name
-//        cell.textLabel?.textColor = UIColor.white
-//        cell.backgroundColor = cellBkgdColorPicker(weight: cMgr.cons[indexPath.row].weight)
-//        
-//        return cell
-//    }
-//    
-//    func tableView(_ tableView: conTable, numberOfRowsInSection section: Int) -> Int {
-//        
-//        return cMgr.cons.count
-//    }
-//    
-//    func tableView(tableView: conTable, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
-//        if (editingStyle == UITableViewCellEditingStyle.delete){
-//            cMgr.cons.remove(at: indexPath.row)
-//            conTable.reloadData()
-
-
-
     
     //Swiping
     func swipeForPro(swipe:UISwipeGestureRecognizer)
@@ -138,6 +125,16 @@ class ViewController : UIViewController, UITableViewDelegate, UITableViewDataSou
     func swipeForCon(swipe:UISwipeGestureRecognizer)
     {
         performSegue(withIdentifier: "goCon", sender: self)
+    }
+    
+    //Shake For Results
+    func shakeForResults(proOrCon: Bool) {
+        if proOrCon {
+        performSegue(withIdentifier: "proResults", sender: self)
+        }
+        else {
+        performSegue(withIdentifier: "conResults", sender: self)
+        }
     }
     
     //Colors
@@ -178,7 +175,7 @@ class ViewController : UIViewController, UITableViewDelegate, UITableViewDataSou
             return UIColor(red: 160/255, green: 62/255, blue: 49/255, alpha: 1.0)
         }
     }
-
+    
 
 }
 
@@ -224,3 +221,40 @@ class ViewController : UIViewController, UITableViewDelegate, UITableViewDataSou
 //        let item = proList[indexPath.row]
 //      cell.textLabel?.text = item.title
 //return cell
+
+
+
+
+//
+//
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
+//        if (editingStyle == UITableViewCellEditingStyle.delete){
+//            pMgr.pros.remove(at: indexPath.row)
+//            proTable.reloadData()
+//        }
+//    }
+//
+//    //Con Table
+//
+//    func tableView(_ tableView: conTable, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Default Cons")
+//
+//        cell.textLabel?.text = cMgr.cons[indexPath.row].name
+//        cell.textLabel?.textColor = UIColor.white
+//        cell.backgroundColor = cellBkgdColorPicker(weight: cMgr.cons[indexPath.row].weight)
+//
+//        return cell
+//    }
+//
+//    func tableView(_ tableView: conTable, numberOfRowsInSection section: Int) -> Int {
+//
+//        return cMgr.cons.count
+//    }
+//
+//    func tableView(tableView: conTable, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
+//        if (editingStyle == UITableViewCellEditingStyle.delete){
+//            cMgr.cons.remove(at: indexPath.row)
+//            conTable.reloadData()
+
+
+
