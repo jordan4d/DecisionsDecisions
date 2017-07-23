@@ -68,6 +68,11 @@ class ViewController : UIViewController, UITableViewDelegate, UITableViewDataSou
         shakeForResults(proOrCon: getResults())
     }
     
+    //Hide Status Bar
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     //Tables
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -140,16 +145,19 @@ class ViewController : UIViewController, UITableViewDelegate, UITableViewDataSou
     //Colors
     func cellBkgdColorPickerPro(weight:Float) -> UIColor
     {
-        if weight == 1 {
-        return UIColor(red: 67/255, green: 242/255, blue: 169/255, alpha: 1.0)
+        if round(weight) == 0 {
+            return UIColor(red: 67/255, green: 242/255, blue: 169/255, alpha: 1.0)
         }
-        if weight == 2 {
+        if round(weight) == 1 {
+            return UIColor(red: 67/255, green: 242/255, blue: 169/255, alpha: 1.0)
+        }
+        if round(weight) == 2 {
             return UIColor(red: 62/255, green: 224/255, blue: 157/255, alpha: 1.0)
         }
-        if weight == 3 {
+        if round(weight) == 3 {
             return UIColor(red: 48/255, green: 176/255, blue: 124/255, alpha: 1.0)
         }
-        if weight == 4 {
+        if round(weight) == 4 {
             return UIColor(red: 42/255, green: 153/255, blue: 107/255, alpha: 1.0)
         }
         else {
@@ -159,16 +167,19 @@ class ViewController : UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func cellBkgdColorPickerCon(weight:Float) -> UIColor
     {
-        if weight == 1 {
+        if round(weight) == 0 {
             return UIColor(red: 255/255, green: 99/255, blue: 79/255, alpha: 1.0)
         }
-        if weight == 2 {
+        if round(weight) == 1 {
+            return UIColor(red: 255/255, green: 99/255, blue: 79/255, alpha: 1.0)
+        }
+        if round(weight) == 2 {
             return UIColor(red: 239/255, green: 93/255, blue: 74/255, alpha: 1.0)
         }
-        if weight == 3 {
+        if round(weight) == 3 {
             return UIColor(red: 229/255, green: 90/255, blue: 70/255, alpha: 1.0)
         }
-        if weight == 4 {
+        if round(weight) == 4 {
             return UIColor(red: 191/255, green: 74/255, blue: 59/255, alpha: 1.0)
         }
         else {

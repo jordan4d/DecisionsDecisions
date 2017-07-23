@@ -111,6 +111,7 @@
 				TargetAttributes = {
 					88C3A8F81F22DAF300B193F2 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = XYUYG5D3J5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -282,6 +283,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XYUYG5D3J5;
 				INFOPLIST_FILE = ProsAndCons/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Ford-Inc..ProsAndCons";
@@ -294,6 +296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XYUYG5D3J5;
 				INFOPLIST_FILE = ProsAndCons/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Ford-Inc..ProsAndCons";
