@@ -8,31 +8,22 @@
 
 import UIKit
 
-class AddProViewController: UIViewController, UITextFieldDelegate {
+class AddConViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var proTitle: UITextField!
-    @IBOutlet weak var proWeight: UISlider!
-    @IBAction func btnAddPro(sender : UIButton){
-        if (proTitle.text == ""){
-            //Pro Title is blank, do not add a record
+    @IBOutlet weak var conTitle: UITextField!
+    @IBOutlet weak var conWeight: UISlider!
+    @IBAction func btnAddCon(_ sender: UIButton) {
+        if (conTitle.text == ""){
+            //Con Title is blank, do not add a record
         } else {
             //add record
-            pMgr.addPro(name: proTitle.text!, weight: proWeight.value)
+            cMgr.addCon(name: conTitle.text!, weight: conWeight.value)
             
             //dismiss keyboard and reset fields
             
             self.view.endEditing(true)
-            proTitle.text = nil
+            conTitle.text = nil
         }
-    }
-    
-    func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        self.view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
-        textField.resignFirstResponder()
-        return true
     }
     
     override func viewDidLoad() {

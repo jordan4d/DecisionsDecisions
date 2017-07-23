@@ -52,11 +52,11 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="3JZ-yM-bBj"/>
                                         </connections>
                                     </tableView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fEf-OD-q7t">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fEf-OD-q7t" userLabel="conTable">
                                         <rect key="frame" x="0.0" y="333.5" width="375" height="300"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="proCell" id="TdT-fL-N0V">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="conCell" id="TdT-fL-N0V">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TdT-fL-N0V" id="zUb-GC-Con">
@@ -65,10 +65,14 @@
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="L6O-Yh-8wa"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="12K-Zw-ab0"/>
+                                        </connections>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9b-fP-N8v">
                                         <rect key="frame" x="0.0" y="633.5" width="375" height="33.5"/>
-                                        <color key="backgroundColor" red="1" green="0.35419675839999998" blue="0.2760989304" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.89803921568627454" green="0.3529411764705882" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -91,13 +95,15 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="conTable" destination="fEf-OD-q7t" id="lkR-g7-hyv"/>
                         <outlet property="proTable" destination="YwS-ut-0wT" id="rhB-JO-VuI"/>
-                        <segue destination="x4U-48-EiM" kind="presentation" identifier="goRight" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="4RG-dR-MOY"/>
+                        <segue destination="x4U-48-EiM" kind="presentation" identifier="goPro" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="4RG-dR-MOY"/>
+                        <segue destination="6u2-aN-Tst" kind="presentation" identifier="goCon" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="URN-K7-WbX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="213.59999999999999" y="138.98050974512745"/>
+            <point key="canvasLocation" x="263" y="124"/>
         </scene>
         <!--Add Pro View Controller-->
         <scene sceneID="Y7j-qh-0z8">
@@ -191,7 +197,104 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qs0-41-fPA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="213.59999999999999" y="967.4662668665668"/>
+            <point key="canvasLocation" x="-689" y="139"/>
+        </scene>
+        <!--Add Con View Controller Scene-->
+        <scene sceneID="aJm-YF-xIN">
+            <objects>
+                <viewController id="6u2-aN-Tst" userLabel="Add Con View Controller Scene" customClass="AddConViewController" customModule="ProsAndCons" customModuleProvider="target" sceneMemberID="viewController">
+                    <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="qQ4-Nm-N0I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5Ew-YS-4YZ">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ug-pT-rdp">
+                                    <rect key="frame" x="40" y="228" width="295" height="210"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="e8n-5O-wnx">
+                                            <rect key="frame" x="9" y="20.5" width="277" height="169.5"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type to Add New Con" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n3V-Al-Vbf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="277" height="35"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="9SW-Hh-2Sw"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="1" green="0.35294117650000001" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="6u2-aN-Tst" id="tWe-w3-QWi"/>
+                                                    </connections>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How Important Is This?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5JB-Vk-3tQ">
+                                                    <rect key="frame" x="0.0" y="52" width="277" height="23.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ycx-1m-cmo">
+                                                    <rect key="frame" x="-2" y="92.5" width="281" height="31"/>
+                                                    <color key="minimumTrackTintColor" red="0.79355502499999997" green="0.80141200540000002" blue="0.80141200540000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </slider>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="c5I-lB-l5Q">
+                                                    <rect key="frame" x="0.0" y="139.5" width="277" height="30"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdZ-hP-Gb3">
+                                                            <rect key="frame" x="0.0" y="0.0" width="129" height="30"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <state key="normal" title="Save">
+                                                                <color key="titleColor" red="1" green="0.35294117650000001" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="btnAddCon:" destination="6u2-aN-Tst" eventType="touchUpInside" id="oQ9-cu-jfs"/>
+                                                                <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="26S-tK-PLf"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTK-cm-vbp">
+                                                            <rect key="frame" x="148" y="0.0" width="129" height="30"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <state key="normal" title="Cancel">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="0.3529411764705882" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="295" id="IFK-p6-tjo"/>
+                                        <constraint firstAttribute="height" constant="210" id="daS-zf-66N"/>
+                                        <constraint firstAttribute="trailing" secondItem="e8n-5O-wnx" secondAttribute="trailing" constant="9" id="igq-lT-MWS"/>
+                                        <constraint firstItem="e8n-5O-wnx" firstAttribute="centerY" secondItem="4Ug-pT-rdp" secondAttribute="centerY" id="kTO-gk-w3t"/>
+                                        <constraint firstItem="e8n-5O-wnx" firstAttribute="leading" secondItem="4Ug-pT-rdp" secondAttribute="leading" constant="9" id="uuU-ZK-C1f"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="4Ug-pT-rdp" firstAttribute="centerX" secondItem="5Ew-YS-4YZ" secondAttribute="centerX" id="aZB-sg-Ktl"/>
+                                <constraint firstItem="4Ug-pT-rdp" firstAttribute="centerY" secondItem="5Ew-YS-4YZ" secondAttribute="centerY" id="gu2-yg-lBK"/>
+                            </constraints>
+                        </view>
+                        <blurEffect style="light"/>
+                    </visualEffectView>
+                    <connections>
+                        <outlet property="conTitle" destination="n3V-Al-Vbf" id="qjc-EQ-bel"/>
+                        <outlet property="conWeight" destination="Ycx-1m-cmo" id="vUi-u1-pDa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Wr-XH-Uhm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1095" y="139"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="26S-tK-PLf"/>
+    </inferredMetricsTieBreakers>
 </document>
