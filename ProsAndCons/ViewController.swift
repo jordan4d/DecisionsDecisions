@@ -45,6 +45,8 @@ class ViewController : UIViewController, UITableViewDelegate, UITableViewDataSou
         
     }
     
+    
+    
     //Results
     func getResults() -> Bool {
         var supremeTotal: Float = 0
